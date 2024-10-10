@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './ContactList.module.css';
 
 export const ContactList = () => {
     const [error, setError] = useState('');
     const [contacts, setContacts] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchContacts = async () => {
@@ -25,6 +27,10 @@ export const ContactList = () => {
 
         fetchContacts();
     }, []);
+
+    const handleEditClick = (contactId) => {
+        navigate(`/edit/${contactId}`);
+    };
 
     return (
         <>
@@ -88,17 +94,28 @@ export const ContactList = () => {
                                     )}
                                 </td>
                                 <td className={styles.data}>
-                                    {contact.addresses.map((address, index) => (
-                                        <div key={index}>
-                                            <strong>
-                                                {address.addressName}
-                                            </strong>
-                                            : {address.country}
-                                        </div>
-                                    ))}
+                                    {contact.addresses ? (
+                                        contact.addresses.map(
+                                            (address, index) => (
+                                                <div key={index}>
+                                                    <strong>
+                                                        {address.addressName}
+                                                    </strong>
+                                                    : {address.country}
+                                                </div>
+                                            ),
+                                        )
+                                    ) : (
+                                        <>-</>
+                                    )}
                                 </td>
                                 <td className={styles.data}>
-                                    <button className={styles.edit}>
+                                    <button
+                                        className={styles.edit}
+                                        onClick={() =>
+                                            handleEditClick(contact.id)
+                                        }
+                                    >
                                         Edit
                                     </button>
                                 </td>

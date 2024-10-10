@@ -19,7 +19,7 @@ const validationSchema = Yup.object().shape({
     contactType: Yup.string().required('Contact Type is required'),
 });
 
-export const Form = ({ onSubmit }) => {
+export const Form = ({ onSubmit, initialValue }) => {
     const {
         register,
         handleSubmit,
@@ -28,7 +28,7 @@ export const Form = ({ onSubmit }) => {
         formState: { errors },
     } = useForm({
         resolver: yupResolver(validationSchema),
-        defaultValues: {
+        defaultValues: initialValue || {
             firstName: '',
             lastName: '',
             email: '',

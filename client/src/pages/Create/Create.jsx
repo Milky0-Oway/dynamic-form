@@ -12,7 +12,15 @@ export const Create = () => {
         const payload = {};
 
         Object.keys(data).forEach((key) => {
-            if (data[key]) {
+            if (key === 'addresses') {
+                const addr = [];
+                data[key].forEach((item) => {
+                    if (item.addressName && item.country) {
+                        addr.push(item);
+                    }
+                });
+                if (addr.length) payload[key] = addr;
+            } else if (data[key]) {
                 payload[key] = data[key];
             }
         });
