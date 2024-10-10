@@ -1,22 +1,27 @@
-import { ContactList } from "../../components/ContactsList/ContactList";
+import { Link } from 'react-router-dom';
+import { ContactList } from '../../components/ContactsList/ContactList';
 import styles from './List.module.css';
 
 export const List = () => {
-    const handleCreate = () => {
+    const handleCreate = () => {};
 
-    }
-
-    return(
-    <main className={styles.container}>
-        <header className={styles.header}>
-            <h1>List of contacts</h1>
-            <button className={styles.create} onClick={handleCreate} aria-label="Create New Contact">
-                Create New Contact
-            </button>
-        </header>
-        <section>
-            <ContactList/>
-        </section>
-    </main>
+    return (
+        <main className={styles.container}>
+            <header className={styles.header}>
+                <h1>List of contacts</h1>
+                <Link to="/create">
+                    <button
+                        className={styles.create}
+                        onClick={handleCreate}
+                        aria-label="Create New Contact"
+                    >
+                        Create New Contact
+                    </button>
+                </Link>
+            </header>
+            <section>
+                <ContactList />
+            </section>
+        </main>
     );
 };

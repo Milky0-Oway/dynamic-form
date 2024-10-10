@@ -10,7 +10,7 @@ let contacts = [
     communicationMethod: "Email",
     importance: "Primary",
     note: "Key business contact",
-    addresses: [{ addressName: "Home", country: "USA", city: "New York" }],
+    addresses: [{ addressName: "Home", country: "USA" }],
   },
   {
     id: 2,
@@ -24,8 +24,8 @@ let contacts = [
     phoneType: "Mobile",
     phoneComment: "Only available after 6pm",
     addresses: [
-      { addressName: "Work", country: "USA", city: "San Francisco" },
-      { addressName: "Home", country: "USA", city: "Los Angeles" },
+      { addressName: "Work", country: "USA" },
+      { addressName: "Home", country: "USA" },
     ],
   },
 ];
