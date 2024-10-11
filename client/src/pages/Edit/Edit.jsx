@@ -40,7 +40,7 @@ export const Edit = () => {
                         addr.push(item);
                     }
                 });
-                if (JSON.stringify(addr) !== JSON.stringify(data[key]))
+                if (JSON.stringify(addr) !== JSON.stringify(contact[key]))
                     payload[key] = addr;
             } else if (data[key] !== contact[key]) {
                 payload[key] = data[key];

@@ -95,16 +95,14 @@ export const ContactList = () => {
                                 </td>
                                 <td className={styles.data}>
                                     {contact.addresses ? (
-                                        contact.addresses.map(
-                                            (address, index) => (
-                                                <div key={index}>
-                                                    <strong>
-                                                        {address.addressName}
-                                                    </strong>
-                                                    : {address.country}
-                                                </div>
-                                            ),
-                                        )
+                                        contact.addresses.map((address) => (
+                                            <div key={address.addressName}>
+                                                <strong>
+                                                    {address.addressName}
+                                                </strong>
+                                                : {address.country}
+                                            </div>
+                                        ))
                                     ) : (
                                         <>-</>
                                     )}

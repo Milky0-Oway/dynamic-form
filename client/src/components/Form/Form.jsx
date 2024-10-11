@@ -5,6 +5,7 @@ import { RadioButton } from '../RadioButton/RadioButton';
 import styles from './Form.module.css';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
+import { AddressFields } from '../AddressFields/AddressFields';
 
 const validationSchema = Yup.object().shape({
     firstName: Yup.string()
@@ -162,28 +163,7 @@ export const Form = ({ onSubmit, initialValue }) => {
             )}
 
             <h3 className={styles.fullWidth}>Addresses</h3>
-            {fields.map((field, index) => (
-                <div
-                    key={field.id}
-                    className={`${styles.fieldGroup} ${styles.fullWidth}`}
-                >
-                    <Input
-                        label="Address Name"
-                        id={`addresses[${index}].addressName`}
-                        {...register(`addresses[${index}].addressName`)}
-                    />
-                    <Select
-                        label="Country"
-                        id={`addresses[${index}].country`}
-                        {...register(`addresses[${index}].country`)}
-                        options={[
-                            { value: 'USA', label: 'USA' },
-                            { value: 'Canada', label: 'Canada' },
-                            { value: 'UK', label: 'UK' },
-                        ]}
-                    />
-                </div>
-            ))}
+            <AddressFields fields={fields} register={register} />
 
             <button
                 className={styles.button}
