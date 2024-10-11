@@ -1,4 +1,4 @@
-let contacts = [
+let CONTACTS = [
     {
         id: 1,
         firstName: 'John',
@@ -30,21 +30,21 @@ let contacts = [
     },
 ];
 
-const getAllContacts = () => contacts;
+const getAllContacts = () => CONTACTS;
 
-const getContactById = (id) => contacts.find((c) => c.id === id);
+const getContactById = (id) => CONTACTS.find((c) => c.id === id);
 
 const createContact = (contact) => {
-    contact.id = contacts.length + 1;
-    contacts.push(contact);
+    contact.id = CONTACTS.length ? CONTACTS[CONTACTS.length - 1] + 1 : 1;
+    CONTACTS.push(contact);
     return contact;
 };
 
 const updateContact = (id, updatedContact) => {
-    const index = contacts.findIndex((c) => c.id === id);
+    const index = CONTACTS.findIndex((c) => c.id === id);
     if (index === -1) return null;
-    contacts[index] = { ...contacts[index], ...updatedContact };
-    return contacts[index];
+    CONTACTS[index] = { ...CONTACTS[index], ...updatedContact };
+    return CONTACTS[index];
 };
 
 module.exports = {

@@ -6,6 +6,7 @@ import styles from './Form.module.css';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { AddressFields } from '../AddressFields/AddressFields';
+import classNames from 'classnames';
 
 const validationSchema = Yup.object().shape({
     firstName: Yup.string()
@@ -105,7 +106,7 @@ export const Form = ({ onSubmit, initialValue }) => {
                 ]}
             />
 
-            <div className={`${styles.fullWidth} ${styles.radioGroup}`}>
+            <div className={classNames(styles.fullWidth, styles.radioGroup)}>
                 <label>Communication Method</label>
                 <div className={styles.radioGroup}>
                     <RadioButton

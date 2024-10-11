@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './ContactList.module.css';
+import { ContactRow } from '../ContactRow/ContactRow';
 
 export const ContactList = () => {
     const [error, setError] = useState('');
@@ -56,68 +57,11 @@ export const ContactList = () => {
                     </thead>
                     <tbody>
                         {contacts.map((contact) => (
-                            <tr key={contact.id}>
-                                <td className={styles.data}>
-                                    {contact.firstName}
-                                </td>
-                                <td className={styles.data}>
-                                    {contact.lastName}
-                                </td>
-                                <td className={styles.data}>{contact.email}</td>
-                                <td className={styles.data}>
-                                    {contact.phone || '-'}
-                                </td>
-                                <td className={styles.data}>
-                                    {contact.contactType}
-                                </td>
-                                <td className={styles.data}>
-                                    {contact.status}
-                                </td>
-                                <td className={styles.data}>
-                                    {contact.communicationMethod}
-                                </td>
-                                <td className={styles.data}>
-                                    {contact.communicationMethod === 'Email' ? (
-                                        <>
-                                            <strong>Importance:</strong>{' '}
-                                            {contact.importance} <br />
-                                            <strong>Note:</strong>{' '}
-                                            {contact.note}
-                                        </>
-                                    ) : (
-                                        <>
-                                            <strong>Phone Type:</strong>{' '}
-                                            {contact.phoneType} <br />
-                                            <strong>Comment:</strong>{' '}
-                                            {contact.phoneComment}
-                                        </>
-                                    )}
-                                </td>
-                                <td className={styles.data}>
-                                    {contact.addresses ? (
-                                        contact.addresses.map((address) => (
-                                            <div key={address.addressName}>
-                                                <strong>
-                                                    {address.addressName}
-                                                </strong>
-                                                : {address.country}
-                                            </div>
-                                        ))
-                                    ) : (
-                                        <>-</>
-                                    )}
-                                </td>
-                                <td className={styles.data}>
-                                    <button
-                                        className={styles.edit}
-                                        onClick={() =>
-                                            handleEditClick(contact.id)
-                                        }
-                                    >
-                                        Edit
-                                    </button>
-                                </td>
-                            </tr>
+                            <ContactRow
+                                key={contact.id}
+                                contact={contact}
+                                onEdit={handleEditClick}
+                            />
                         ))}
                     </tbody>
                 </table>

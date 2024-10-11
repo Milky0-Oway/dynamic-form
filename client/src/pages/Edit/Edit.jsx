@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Form } from '../../components/Form/Form';
 import { useNavigate, useParams } from 'react-router-dom';
 import styles from './Edit.module.css';
+import { Loader } from '../../components/Loader/Loader';
 
 export const Edit = () => {
     const [contact, setContact] = useState(null);
@@ -61,17 +62,22 @@ export const Edit = () => {
         }
     };
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
     return (
-        <div className={styles.edit}>
-            <h1>Edit Contact</h1>
-            {contact && (
-                <Form initialValue={contact} onSubmit={handleFormSubmit} />
+        <>
+            {loading ? (
+                <Loader />
+            ) : (
+                <div className={styles.edit}>
+                    <h1>Edit Contact</h1>
+                    {contact && (
+                        <Form
+                            initialValue={contact}
+                            onSubmit={handleFormSubmit}
+                        />
+                    )}
+                    {error && <p className={styles.error}>{error}</p>}
+                </div>
             )}
-            {error && <p className={styles.error}>{error}</p>}
-        </div>
+        </>
     );
 };

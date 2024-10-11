@@ -1,6 +1,7 @@
 import { Input } from '../Input/Input';
 import { Select } from '../Select/Select';
 import styles from './AddressFields.module.css';
+import classNames from 'classnames';
 
 export const AddressFields = ({ fields, register, remove }) => {
     return (
@@ -8,7 +9,7 @@ export const AddressFields = ({ fields, register, remove }) => {
             {fields.map((field, index) => (
                 <div
                     key={field.id}
-                    className={`${styles.fieldGroup} ${styles.fullWidth}`}
+                    className={classNames(styles.fieldGroup, styles.fullWidth)}
                 >
                     <Input
                         label="Address Name"

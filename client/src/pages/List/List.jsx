@@ -3,8 +3,6 @@ import { ContactList } from '../../components/ContactsList/ContactList';
 import styles from './List.module.css';
 
 export const List = () => {
-    const handleCreate = () => {};
-
     return (
         <main className={styles.container}>
             <header className={styles.header}>
@@ -12,7 +10,6 @@ export const List = () => {
                 <Link to="/create">
                     <button
                         className={styles.create}
-                        onClick={handleCreate}
                         aria-label="Create New Contact"
                     >
                         Create New Contact

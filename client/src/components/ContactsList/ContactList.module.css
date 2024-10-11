@@ -10,21 +10,3 @@
     background: #efefef;
     border: 1px solid #ddd;
 }
-
-.data {
-    border: 1px solid #ddd;
-    padding: 5px;
-    text-align: center;
-}
-
-.edit {
-    padding: 5px;
-    border-radius: 5px;
-    background: none;
-    border: 1px solid black;
-    cursor: pointer;
-}
-
-.edit:hover {
-    background: #ddd;
-}
