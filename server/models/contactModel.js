@@ -35,7 +35,7 @@ const getAllContacts = () => CONTACTS;
 const getContactById = (id) => CONTACTS.find((c) => c.id === id);
 
 const createContact = (contact) => {
-    contact.id = CONTACTS.length ? CONTACTS[CONTACTS.length - 1] + 1 : 1;
+    contact.id = CONTACTS.length ? CONTACTS[CONTACTS.length - 1].id + 1 : 1;
     CONTACTS.push(contact);
     return contact;
 };
