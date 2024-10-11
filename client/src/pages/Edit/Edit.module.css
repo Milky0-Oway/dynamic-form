@@ -1,0 +1,16 @@
+.edit {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    gap: 20px;
+    padding-top: 30px;
+}
+
+.error {
+    color: #530606;
+    font-size: 14px;
+    margin-top: 4px;
+}

@@ -1,0 +1,47 @@
+name: Lint and Format Check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  client_checks:
+    name: Check the client source code
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies for client
+        working-directory: ./client
+        run: npm ci
+
+      - name: Run ESLint in client folder
+        working-directory: ./client
+        run: npm run lint
+
+      - name: Run Prettier Check in client folder
+        working-directory: ./client
+        run: npm run prettier:check
+
+  server_checks:
+    name: Check the server source code
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install dependencies for server
+        working-directory: ./server
+        run: npm ci
+
+      - name: Run ESLint in server folder
+        working-directory: ./server
+        run: npm run lint
+
+      - name: Run Prettier Check in server folder
+        working-directory: ./server
+        run: npm run prettier:check
