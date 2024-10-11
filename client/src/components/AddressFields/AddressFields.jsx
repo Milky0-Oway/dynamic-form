@@ -2,7 +2,7 @@ import { Input } from '../Input/Input';
 import { Select } from '../Select/Select';
 import styles from './AddressFields.module.css';
 
-export const AddressFields = ({ fields, register }) => {
+export const AddressFields = ({ fields, register, remove }) => {
     return (
         <>
             {fields.map((field, index) => (
@@ -25,6 +25,13 @@ export const AddressFields = ({ fields, register }) => {
                             { value: 'UK', label: 'UK' },
                         ]}
                     />
+                    <button
+                        className={styles.button}
+                        type="button"
+                        onClick={() => remove(index)}
+                    >
+                        Remove
+                    </button>
                 </div>
             ))}
         </>

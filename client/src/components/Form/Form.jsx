@@ -45,7 +45,7 @@ export const Form = ({ onSubmit, initialValue }) => {
         },
     });
 
-    const { fields, append } = useFieldArray({
+    const { fields, append, remove } = useFieldArray({
         control,
         name: 'addresses',
     });
@@ -163,7 +163,11 @@ export const Form = ({ onSubmit, initialValue }) => {
             )}
 
             <h3 className={styles.fullWidth}>Addresses</h3>
-            <AddressFields fields={fields} register={register} />
+            <AddressFields
+                fields={fields}
+                register={register}
+                remove={remove}
+            />
 
             <button
                 className={styles.button}

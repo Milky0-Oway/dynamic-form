@@ -1,9 +1,24 @@
 .fieldGroup {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 3fr 3fr 1fr;
     gap: 20px;
+    justify-content: center;
+    align-items: center;
 }
 
 .fullWidth {
     grid-column: 1 / -1;
+}
+
+.button {
+    background-color: #3570ee;
+    color: #fff;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #1e49a5;
 }
